@@ -13,12 +13,12 @@ const months = {
    DEC: '12',
 };
 
-
 // function to convert '20-SEP-2022'date format into '2018-10-19' format
 export function dateFormatter(dateParam) {
    const reversedArray = dateParam.split('-').reverse();
    const temp = reversedArray[1];
    reversedArray[1] = months[temp];
+   reversedArray[0] = reversedArray[0] === '2999' ? '2022' : reversedArray[0];
 
    return reversedArray.join('-');
 }

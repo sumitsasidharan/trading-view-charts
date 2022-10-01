@@ -12,6 +12,7 @@ const FILTERED_DATA = apiData2.data.map((item) => {
       high: parseFloat(item.dayHigh),
       low: parseFloat(item.dayLow),
       time: dateFormatter(item.lastUpdateTime),
+      // time: new Date(item.lastUpdateTime),
    };
 });
 console.log(FILTERED_DATA);
