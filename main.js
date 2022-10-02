@@ -2,17 +2,18 @@
 import { generateCandlestickData } from './dataFunc.js';
 import { apiData } from './apiData.js';
 import { apiData2 } from './apiData2.js';
-import { dateFormatter } from './utils.js';
+import { dateFormatter, dateToSeconds } from './utils.js';
 
-const FILTERED_DATA = apiData2.data.map((item) => {
+
+const FILTERED_DATA = apiData.map((item) => {
    // console.log(item.lastUpdateTime);
    return {
       open: parseFloat(item.open),
       close: parseFloat(item.previousClose),
       high: parseFloat(item.dayHigh),
       low: parseFloat(item.dayLow),
-      time: dateFormatter(item.lastUpdateTime),
-      // time: new Date(item.lastUpdateTime),
+      time: dateToSeconds(item.lastUpdateTime),
+      
    };
 });
 console.log(FILTERED_DATA);
@@ -85,7 +86,7 @@ const currentLocale = window.navigator.languages[0];
 // Create a number format using Intl.NumberFormat
 const myPriceFormatter = Intl.NumberFormat(currentLocale, {
    style: 'currency',
-   currency: 'EUR', // Currency for data points
+   currency: 'USD', // Currency for data points
 }).format;
 
 // Apply the custom priceFormatter to the chart
@@ -203,6 +204,7 @@ const chartOptions = {
    layout: {
       textColor: 'black',
       background: { type: 'solid', color: 'white' },
+      
    },
 };
 const barChart = LightweightCharts.createChart(
@@ -227,7 +229,8 @@ const data = [
    { open: 10.93, high: 11.53, low: 10.76, close: 10.96, time: 1643205476 },
 ];
 
-barSeries.setData(data);
+barSeries.setData(FILTERED_DATA);
+// barSeries.setData(data);
 
 barChart.timeScale().fitContent();
 

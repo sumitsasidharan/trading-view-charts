@@ -22,3 +22,11 @@ export function dateFormatter(dateParam) {
 
    return reversedArray.join('-');
 }
+
+
+// converting a js date to seconds (unix UTCtimestamp)
+export function dateToSeconds(dateParam) {
+   const date = new Date(dateParam);
+   let seconds = Math.round(date.getTime() / 1000);
+   return seconds;
+}
