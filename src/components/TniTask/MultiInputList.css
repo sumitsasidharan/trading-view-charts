@@ -1,0 +1,31 @@
+.multiInputList_Wrapper {
+   padding: 4rem ;
+   
+}
+
+.addBtn_Wrapper {
+   cursor: pointer;
+   margin-top: 1rem;
+}
+
+.btn {
+   margin-top: 1rem;
+   margin-right: 1rem;
+}
+
+.message {
+   background-color: greenyellow;
+   border: 1px solid green;
+   border-radius: 4px;
+   display: inline-block;
+   padding: .2rem .5rem;
+   color: green;
+   /* font-size: 14px; */
+   /* font-weight: bold; */
+}
+
+.message span {
+   font-weight: bold;
+   padding: .2rem;
+   font-style: italic;
+}
